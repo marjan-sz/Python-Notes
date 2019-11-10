@@ -1,0 +1,35 @@
+We can use timeit module in Python to measure execution time of multiple lines and compare them.
+
+We can use this module with Python code or the command-line interface:
+
+One line of code in Python:
+>>> import timeit
+>>> timeit.timeit('L = [2 ** n for n in range(10)]')
+3.0072080040117726
+
+Multiple line of code with same indentation in Python:
+>>> import timeit
+>>> timeit.timeit('x = 2; L = [x ** n for n in range(10)]')
+3.0759821450337768
+
+Multiple line of code with different indentation: (we define a string and store code as a string there)
+import timeit
+s = """\
+L = []
+for n in range(10):
+    L.append(2 ** n)"""
+t = timeit.timeit(s)
+
+Invoke Python "timeit" module from the shell: (one line of code)
+$ python3 -m timeit 'L = [2 ** n for n in range(10)]'
+100000 loops, best of 3: 2.99 usec per loop
+
+Call from shell with multiple lines of code with same indentation:
+$ python3 -m timeit 'x = 2; L = [x ** n for n in range(10)]'
+100000 loops, best of 3: 3.07 usec per loop
+
+Call from shell with multiple lines of code with different identation:
+$ python3 -m timeit \
+'L = []' 'for n in range(10):' '    L.append(2 ** n)'
+100000 loops, best of 3: 3.47 usec per loop
+
