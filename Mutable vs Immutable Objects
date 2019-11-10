@@ -42,3 +42,5 @@ for item in X:
   
 Since tuples are immutable, we are copying the contents of tuple T to a new tuple object at each iteration. If the 'for'
 loop is big, it is a huge performance problem.
+
+So, in appending performance, mutablity wins.
