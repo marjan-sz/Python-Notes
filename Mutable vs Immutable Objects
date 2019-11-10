@@ -1,0 +1,41 @@
+In Python, list objects are mutable while tuple objects are immutable. 
+
+
+a = (1,2,3)
+b = [3,4,5]
+
+We can modify a list object:
+b[0] = 10
+=> b = [10,4,5]
+
+We cannot modify a tuple object:
+a[0] = 11
+TypeError: Tuple object does not accept item assignment
+
+
+However, we can redefine tuple object:
+a = (11,2,3)
+
+Here we did not modify this tuple object, but we allocate a new memory location. 
+
+Object vs Variable:
+A tuple or list object will be located in a memory location while variable is referring to that memory location. 
+A variable is nothing but a reference to the actual python object in the memory.
+When we redefine a tuple, their address in memory change. 
+
+Mutable and immutable concepts exist in all programming languages. Each of them has its own usages.
+When we know that we need to modify an object frequently, we choose a mutable object such as list.
+We can always append elements to a list, while it is not possible in for tuple objects. 
+If we want to append to a tuple for a large number of items, we will have memory problems. Since for each concatenation (appending)
+a new location in the memory has been allocated.
+
+L = []
+for item in X:
+  L.append(item)
+  
+T = ()
+for item in X:
+  T = T + (item,)
+  
+Since tuples are immutable, we are copying the contents of tuple T to a new tuple object at each iteration. If the 'for'
+loop is big, it is a huge performance problem.
